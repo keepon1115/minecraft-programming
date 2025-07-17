@@ -121,7 +121,7 @@
         }
         
         .hero-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.6rem, 5vw, 2.8rem);
             font-weight: 900;
             margin-bottom: 20px;
             background: var(--gradient-1);
@@ -131,7 +131,7 @@
         }
         
         .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: clamp(1rem, 3rem, 1.5rem);
             color: var(--dark);
             margin-bottom: 40px;
             animation: slideInRight 1s ease-out 0.3s both;
@@ -148,7 +148,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             position: relative;
             overflow: hidden;
             animation: fadeInUp 1s ease-out 0.6s both;
@@ -156,12 +156,12 @@
         
         .cta-button {
             display: inline-block;
-            padding: 18px 50px;
+            padding: 15px 40px;
             background: var(--gradient-1);
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             transition: all 0.3s ease;
             animation: pulse 2s ease-in-out infinite;
@@ -180,7 +180,7 @@
         }
         
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.4rem, 4vw, 2.0rem);
             text-align: center;
             margin-bottom: 60px;
             position: relative;
@@ -219,7 +219,7 @@
         }
         
         .timeline-item h3 {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             margin-bottom: 20px;
             color: var(--dark);
         }
@@ -261,19 +261,21 @@
         }
         
         .feature-icon {
-            width: 100px;
-            height: 100px;
+            width: 160px;
+            height: 160px;
             margin: 0 auto 30px;
-            background: var(--gradient-1);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+        }
+        
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
         }
         
         .feature-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             margin-bottom: 20px;
             color: var(--dark);
         }
@@ -322,14 +324,14 @@
         }
         
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: var(--pink);
             margin-bottom: 10px;
         }
         
         .stat-label {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: var(--dark);
         }
         
@@ -356,13 +358,13 @@
         }
         
         .feature-text h3 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             margin-bottom: 20px;
             color: var(--dark);
         }
         
         .feature-text p {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             line-height: 1.8;
             margin-bottom: 20px;
         }
@@ -376,12 +378,13 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
         
         .detail-button {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 10px 25px;
+            font-size: 0.9rem;
             background: transparent;
             border: 2px solid var(--turquoise);
             color: var(--turquoise);
@@ -404,12 +407,12 @@
         }
         
         .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
             margin-bottom: 30px;
         }
         
         .cta-section p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             margin-bottom: 40px;
             max-width: 700px;
             margin-left: auto;
@@ -419,8 +422,8 @@
         .cta-button-white {
             background: white;
             color: var(--turquoise);
-            padding: 20px 60px;
-            font-size: 1.3rem;
+            padding: 16px 50px;
+            font-size: 1.1rem;
         }
         
         .cta-button-white:hover {
@@ -440,7 +443,7 @@
         }
         
         .company-info h3 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
         }
         
@@ -476,15 +479,19 @@
             }
             
             .hero-title {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
             
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
             
             .features {
                 grid-template-columns: 1fr;
+            }
+            
+            .feature-visual img {
+                object-fit: contain;
             }
         }
         
@@ -525,7 +532,7 @@
             
             <div class="hero-content">
                 <h1 class="hero-title">AI時代を生き抜く<br>「未来を創る力」を。</h1>
-                <p class="hero-subtitle">マインクラフト×SDGs×プログラミングで、<br>楽しみながら新たな価値を生み出す</p>
+                <p class="hero-subtitle">マイクラ×SDGs×プログラミングで、<br>楽しみながら新たな価値を生み出す</p>
                 
                 <div class="hero-visual" style="background: none; display: block;">
                     <img src="hero-visual.png" alt="メインビジュアル" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
@@ -544,23 +551,23 @@
             <div class="timeline">
                 <div class="timeline-item old-era">
                     <h3>今までの工業社会では</h3>
-                    <p>📚 一つの正解を早く正確に記憶し、</p>
+                    <p>📚 正解を早く正確に記憶し、</p>
                     <p>✏️ テストで良い点を取ることで、</p>
-                    <p>🏭 決められた作業を効率的にこなしてきた。</p>
+                    <p>🏭 決まった作業を効率良く行うことが良しとされていた。</p>
                 </div>
                 
                 <div class="timeline-item new-era">
                     <h3>今後のAI/ロボット社会は</h3>
-                    <p>🌍 正解のない社会問題に対して深く考え、</p>
+                    <p>🌍 正解がない問題に対して、</p>
                     <p>💡 自ら解決策を生み出し、</p>
                     <p>🗣️ 周りの人々と共有することで、</p>
-                    <p>🚀 新しい価値を創造し、問題を解決していく！</p>
+                    <p>🚀 新しい価値を創造し、問題を解決していくことが求められます！</p>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
                 <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto;">
-                    変化の激しい時代を、たくましく生き抜く力を育みます！
+                    今後ますます変化していく社会で、<br>たくましく生き抜く力を育みます！
                 </p>
             </div>
         </div>
@@ -573,7 +580,9 @@
             
             <div class="features">
                 <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
+                    <div class="feature-icon">
+                        <img src="icon-minecraft.png" alt="マインクラフトのアイコン" width="80" height="80">
+                    </div>
                     <h3>創造性が爆発！<br>マインクラフトで<br>アイデアをカタチに</h3>
                     <ul>
                         <li><strong>ひらめきを具現化</strong><br>「こんなものがあったらいいな」というアイデアを、ブロック一つ一つ積み上げて形に。</li>
@@ -582,7 +591,9 @@
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
+                    <div class="feature-icon">
+                        <img src="icon-sdgs.png" alt="SDGsのアイコン" width="80" height="80">
+                    </div>
                     <h3>世界の社会問題を<br>"自分ごと"に。<br>SDGsで考える力</h3>
                     <ul>
                         <li><strong>リアルな課題に触れる</strong><br>貧困、飢餓、環境問題など、現実世界の複雑な課題を分かりやすくインプット。</li>
@@ -591,7 +602,9 @@
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">💻</div>
+                    <div class="feature-icon">
+                        <img src="icon-programming.png" alt="プログラミングのアイコン" width="80" height="80">
+                    </div>
                     <h3>「論理的思考力」と<br>「発信力」を育む<br>プログラミング学習</h3>
                     <ul>
                         <li><strong>ゲームで学ぶプログラミング</strong><br>エージェントに命令を与え、自動で建物を建てたり、問題を解決する仕組みを作る。</li>
@@ -606,10 +619,10 @@
     <section class="value-section">
         <div class="container">
             <div class="value-content">
-                <h2 class="section-title">受験勉強だけが、お子さまの未来を拓く道ではありません！！</h2>
+                <h2 class="section-title">受験勉強だけが、子どもの未来を拓く道ではありません！！</h2>
                 
                 <p style="font-size: 1.2rem; margin-bottom: 40px;">
-                    高額な費用を払い、お子さまが嫌がる勉強を無理にさせるのは、<br>
+                    高額な費用を払い、<br>子どもが嫌がる勉強をさせるのは、<br>
                     本当に最善の選択でしょうか？
                 </p>
                 
@@ -624,11 +637,11 @@
                     </div>
                 </div>
                 
-                <p style="font-size: 1.3rem; margin-top: 40px;">
-                    大学・企業も知識の詰め込みだけでなく<br>
-                    <strong style="color: var(--pink); font-size: 1.5rem;">
+                <p style="font-size: 1.1rem; margin-top: 40px;">
+                    大学・企業も知識の詰め込みだけでなく<br><br>
+                    <strong style="color: var(--pink); font-size: 1.2rem;">
                         「主体性」「多様性」「課題解決能力」
-                    </strong><br>
+                    </strong><br><br>
                     を重視する時代へと移行しています。
                 </p>
             </div>
@@ -640,7 +653,7 @@
             <div class="container">
                 <h2>まずは体験してください！</h2>
                 <p>
-                    子どもの目が輝き、自ら学び始めるきっかけを、<br>
+                    子どもの目が輝き、<br>自ら学び始めるきっかけを、<br>
                     ぜひ体験で実感してください。
                 </p>
                 <a href="https://lin.ee/8Hs0fNc" class="cta-button cta-button-white">無料体験や問合せはこちら</a>
@@ -681,7 +694,7 @@
         <div class="container">
             <h2>まずは体験してください！</h2>
             <p>
-                子どもの目が輝き、自ら学び始めるきっかけを、<br>
+                子どもの目が輝き、<br>自ら学び始めるきっかけを、<br>
                 ぜひ体験で実感してください。
             </p>
             <a href="https://lin.ee/8Hs0fNc" class="cta-button cta-button-white">無料体験や問合せはこちら</a>
