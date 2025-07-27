@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLAFT - AI時代を生き抜く「未来を創る力」を、お子さまに。</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --turquoise: #54f8ab;
+            --pink: #ff6971;
+            --yellow: #eeff00;
+            --dark: #2C3E50;
+            --light: #ECF0F1;
+            --gradient-1: linear-gradient(135deg, var(--turquoise) 0%, var(--pink) 100%);
+            --gradient-2: linear-gradient(135deg, var(--yellow) 0%, var(--turquoise) 100%);
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1) 0%, rgba(255, 105, 180, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--turquoise) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--pink) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-area {
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .logo-placeholder {
+            display: inline-block;
+            width: 200px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--turquoise), var(--pink), var(--yellow));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 3px;
+        }
+        
+        .hero-content {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: clamp(1.6rem, 5vw, 2.8rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3rem, 1.5rem);
+            color: var(--dark);
+            margin-bottom: 40px;
+            animation: slideInRight 1s ease-out 0.3s both;
+        }
+        
+        .hero-visual {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gradient-1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(64, 224, 208, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(64, 224, 208, 0.4);
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .section-title {
+            font-size: clamp(1.4rem, 4vw, 2.0rem);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 5px;
+            background: var(--gradient-1);
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+        
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .timeline-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .old-era {
+            border-top: 5px solid #95A5A6;
+        }
+        
+        .new-era {
+            border-top: 5px solid var(--turquoise);
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.05) 0%, rgba(255, 105, 180, 0.05) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--turquoise);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .feature-card li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .feature-card li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Value Section */
+        .value-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(64, 224, 208, 0.1) 100%);
+        }
+        
+        .value-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--pink);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        /* Additional Features */
+        .additional-features {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .feature-highlight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .feature-highlight:nth-child(even) {
+            direction: rtl;
+        }
+        
+        .feature-highlight:nth-child(even) > * {
+            direction: ltr;
+        }
+        
+        .feature-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .feature-text p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .feature-visual {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .detail-button {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 0.9rem;
+            background: transparent;
+            border: 2px solid var(--turquoise);
+            color: var(--turquoise);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .detail-button:hover {
+            background: var(--turquoise);
+            color: white;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient-1);
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
+            margin-bottom: 30px;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button-white {
+            background: white;
+            color: var(--turquoise);
+            padding: 16px 50px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button-white:hover {
+            background: var(--light);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 60px 0 30px;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+        
+        .company-info {
+            margin-bottom: 30px;
+        }
+        
+        .company-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--turquoise);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-highlight {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-highlight:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-visual img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+        
+        /* Floating Elements */
+        .floating-block {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .floating-block-1 {
+            top: 20%;
+            left: 5%;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .floating-block-2 {
+            top: 70%;
+            right: 5%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-block floating-block-1"></div>
+    <div class="floating-block floating-block-2"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo-area">
+                <img src="logo.png" alt="CLAFT ロゴ" width="200" height="80">
+            </div>
+            
+            <div class="hero-content">
+                <h1 class="hero-title">AI時代を生き抜く<br>「未来を創る力」を。</h1>
+                <p class="hero-subtitle">マイクラ×SDGs×プログラミングで、<br>楽しみながら新たな価値を生み出す</p>
+                
+                <div class="hero-visual" style="background: none; display: block;">
+                    <img src="hero-visual.png" alt="メインビジュアル" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+                
+                <a href="https://lin.ee/8Hs0fNc" class="cta-button">無料体験や問合せはこちら</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">AI/ロボット社会に向けた学び</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item old-era">
+                    <h3>今までの工業社会では</h3>
+                    <p>📚 正解を早く正確に記憶し、</p>
+                    <p>✏️ テストで良い点を取ることで、</p>
+                    <p>🏭 決まった作業を効率良く行うことが良しとされていた。</p>
+                </div>
+                
+                <div class="timeline-item new-era">
+                    <h3>今後のAI/ロボット社会は</h3>
+                    <p>🌍 正解がない問題に対して、</p>
+                    <p>💡 自ら解決策を生み出し、</p>
+                    <p>🗣️ 周りの人々と共有することで、</p>
+                    <p>🚀 新しい価値を創造し、問題を解決していくことが求められます！</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto;">
+                    今後ますます変化していく社会で、<br>たくましく生き抜く力を育みます！
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="section-title">「楽しい！やってみたい！」が<br>「未来を創る力」に変わる!?</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-minecraft.png" alt="マインクラフトのアイコン" width="80" height="80">
+                    </div>
+                    <h3>創造性が爆発！<br>マインクラフトで<br>アイデアをカタチに</h3>
+                    <ul>
+                        <li><strong>ひらめきを具現化</strong><br>「こんなものがあったらいいな」というアイデアを、ブロック一つ一つ積み上げて形に。</li>
+                        <li><strong>試行錯誤のプロセス</strong><br>理想の形にするために、何度も試しては修正。粘り強く問題に取り組む力が養われます。</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-sdgs.png" alt="SDGsのアイコン" width="80" height="80">
+                    </div>
+                    <h3>世界の社会問題を<br>"自分ごと"に。<br>SDGsで考える力</h3>
+                    <ul>
+                        <li><strong>リアルな課題に触れる</strong><br>貧困、飢餓、環境問題など、現実世界の複雑な課題を分かりやすくインプット。</li>
+                        <li><strong>「私ならどうする？」</strong><br>自分ならどう解決するかを深く考え、マインクラフトの世界で具体的に表現。</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-programming.png" alt="プログラミングのアイコン" width="80" height="80">
+                    </div>
+                    <h3>「論理的思考力」と<br>「発信力」を育む<br>プログラミング学習</h3>
+                    <ul>
+                        <li><strong>ゲームで学ぶプログラミング</strong><br>エージェントに命令を与え、自動で建物を建てたり、問題を解決する仕組みを作る。</li>
+                        <li><strong>アイデアを「共有」する力</strong><br>制作したワールドや解決策を動画にして発表。プレゼンテーション能力を養います。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Value Section -->
+    <section class="value-section">
+        <div class="container">
+            <div class="value-content">
+                <h2 class="section-title">受験勉強だけが、子どもの未来を拓く道ではありません！！</h2>
+                
+                <p style="font-size: 1.2rem; margin-bottom: 40px;">
+                    高額な費用を払い、<br>子どもが嫌がる勉強をさせるのは、<br>
+                    本当に最善の選択でしょうか？
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">59.2%</div>
+                        <div class="stat-label">2024年度の私大の定員割れの割合</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">48.3%</div>
+                        <div class="stat-label">2024年度のテスト入試(一般選抜)の割合</div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.1rem; margin-top: 40px;">
+                    大学・企業も知識の詰め込みだけでなく<br><br>
+                    <strong style="color: var(--pink); font-size: 1.2rem;">
+                        「主体性」「多様性」「課題解決能力」
+                    </strong><br><br>
+                    を重視する時代へと移行しています。
+                </p>
+            </div>
+        </div>
+    </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>まずは体験してください！</h2>
+                <p>
+                    子どもの目が輝き、<br>自ら学び始めるきっかけを、<br>
+                    ぜひ体験で実感してください。
+                </p>
+                <a href="https://lin.ee/8Hs0fNc" class="cta-button cta-button-white">無料体験や問合せはこちら</a>
+            </div>
+        </section>
+    
+    <!-- Additional Features -->
+    <section class="additional-features">
+        <div class="container">
+            <h2 class="section-title">CLAFTの学びは他にも・・</h2>
+            
+            <div class="feature-highlight">
+                <div class="feature-text">
+                    <h3>💬 Yononaka<br> - 対話型ワークショップ</h3>
+                    <p>お金・時間・スマホなど、身近なテーマで正解のない問いについて参加者同士で意見を共有。<br>複眼的に物事を考える姿勢と、自分の意見を言葉にして伝える習慣が身につきます。</p>
+                    <a href="https://claft-keepon.studio.site/yononaka" class="detail-button">詳細を見る</a>
+                </div>
+                <div class="feature-visual" style="background: none;">
+                    <img src="feature-workshop.png" alt="Yononakaワークショップの様子" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+            </div>
+            
+            <div class="feature-highlight">
+                <div class="feature-text">
+                    <h3>🎉 定期的な発表会<br>イベント企画もできる！</h3>
+                    <p>3〜4ヶ月に1回、オンライン・動画提出・リアル開催など様々な形式で発表会を実施。<br>テーマありなしのバージョンで、お子さまの成長を実感できます。</p>
+                    <a href="https://www.keeponlearning.fun/event" class="detail-button">詳細を見る</a>
+                </div>
+                <div class="feature-visual" style="background: none;">
+                    <img src="feature-presentation.png" alt="発表会の様子" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>まずは体験してください！</h2>
+            <p>
+                子どもの目が輝き、<br>自ら学び始めるきっかけを、<br>
+                ぜひ体験で実感してください。
+            </p>
+            <a href="https://lin.ee/8Hs0fNc" class="cta-button cta-button-white">無料体験や問合せはこちら</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="company-info">
+                <h3>CLAFT - マイクラSDGsプログラミングコース</h3>
+                <p>運営会社：キープオン株式会社</p>
+                <p>〒581-0075 大阪府八尾市渋川町5丁目5-33</p>
+                <p>TEL: 072-928-6552</p>
+            </div>
+            <p>&copy; 2024 CLAFT. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
